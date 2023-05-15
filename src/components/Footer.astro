@@ -3,11 +3,11 @@ const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} YOUR NAME HERE. All rights reserved.
+  &copy; {today.getFullYear() !== 2023 && "2023 - "}{today.getFullYear()} Red Ochsenbein. All rights reserved.
 </footer>
+
 <style>
-	footer {
-		padding: 25px;
-		text-align: center;
-	}
+  footer {
+    padding: 25px 0;
+  }
 </style>
