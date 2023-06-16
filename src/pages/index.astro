@@ -1,71 +1,25 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Layout from "../layouts/Page.astro";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header title={SITE_TITLE} />
-    <main>
-      <h1>Hi people</h1>
-      <p>
-        I'm a Software Developer with many years of experience. At the moment I am diving deep into Typescript, React,
-        Rust and Elixir, and I love getting my hands dirty in coding puzzles (tech interviewers better be prepared 🤣).
-        But I have experience in a lot of other languages and technologies like Go, Dart, Python and PHP. I already did
-        a lot in my live, from being a banker, playing music on tour, jumping out of planes, being a music composer, to
-        being a freelance web developer, and designing t-shirts.
-      </p>
-      <ul>
-        <li>🌱 Vegan</li>
-        <li>🚀 In love with rockets and space</li>
-        <li>📓 neovim &lt; VSC</li>
-      </ul>
-    </main>
-    <Footer />
-  </body>
-</html>
+<Layout>
+  <h2>Hi people</h2>
+  <p>
+    I'm a Software Developer with many years of experience. At the moment I am diving deep into Typescript, React, Rust
+    and Elixir, and I love getting my hands dirty in coding puzzles (tech interviewers better be prepared 🤣). But I
+    have experience in a lot of other languages and technologies like Go, Dart, Python and PHP. I already did a lot in
+    my live, from being a banker, playing music on tour, jumping out of planes, being a music composer, to being a
+    freelance web developer, and designing t-shirts.
+  </p>
+  <ul>
+    <li>🌱 Vegan</li>
+    <li>🚀 In love with rockets and space</li>
+    <li>📓 neovim &lt; VSC</li>
+  </ul>
+</Layout>
 
-<style lang="scss">
-body {
-  background: black;
-  background-image: url("/background.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center 100%;
-  color: #fafafa;
-  min-height: 100dvh;
-  box-sizing: border-box;
-
-  &::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100dvh;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: -1;
-    background: url("/red.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom right;
-  }
-}
-
-h1 {
+<style>
+  h2 {
     color: #fafafa;
   }
-
-main {
-  background: rgba(0, 0, 0, 0.7);
-  margin: 0 -2rem;
-  padding: 2rem;
-  border-radius: 0.5rem;
-}
 </style>
