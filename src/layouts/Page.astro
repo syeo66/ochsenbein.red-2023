@@ -18,16 +18,28 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     <Footer />
     <style lang="scss">
       body {
+        animation-name: background;
+        animation-duration: 60s;
+        animation-iteration-count: 1;
         background: black;
         background-image: url("/background.png");
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: center 100%;
+        background-position: 100% 100%;
         color: #fafafa;
         min-height: 100dvh;
         box-sizing: border-box;
+        @media (prefers-reduced-motion) {
+          animation: none;
+        }
 
         &::before {
+          animation-name: portrait;
+          animation-duration: 1s;
+          animation-iteration-count: 1;
+          @media (prefers-reduced-motion) {
+            animation: none;
+          }
           content: "";
           position: fixed;
           top: 0;
@@ -48,6 +60,24 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         margin: 0 -2rem;
         padding: 2rem;
         border-radius: 0.5rem;
+      }
+
+      @keyframes background {
+        0% {
+          background-position: 0 100%;
+        }
+        100% {
+          background-position: 100% 100%;
+        }
+      }
+
+      @keyframes portrait {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
       }
     </style>
   </body>
