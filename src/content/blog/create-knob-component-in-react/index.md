@@ -1,8 +1,8 @@
 ---
-title: 'React: Create a turnable knob component'
-date: '2023-03-13T11:15:00.000Z'
-description: 'I try to create a modular synth for the web. To do this I needed some turnable knobs and I like to share how I did it.'
-devTo: 'https://dev.to/syeo66/react-create-a-turnable-knob-component-5c85'
+title: "React: Create a turnable knob component"
+date: "2023-03-13T11:15:00.000Z"
+description: "I try to create a modular synth for the web. To do this I needed some turnable knobs and I like to share how I did it."
+devTo: "https://dev.to/syeo66/react-create-a-turnable-knob-component-5c85"
 ---
 
 Because I want to learn more about the Web Audio API I started creating a modular synth using React.
@@ -18,20 +18,20 @@ After creating the SVG I took the code and turned it into a React component and 
 
 ```typescript
 interface KnobMainProps {
-  position: number
+  position: number;
 }
 const KnobMain: React.FC<KnobMainProps> = ({ position }) => {
-  const angle = Math.min(Math.max(0, position * 270), 270)
+  const angle = Math.min(Math.max(0, position * 270), 270);
 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlSpace="preserve"
       style={{
-        fillRule: 'evenodd',
-        clipRule: 'evenodd',
-        strokeLinecap: 'round',
-        strokeLinejoin: 'round',
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
         strokeMiterlimit: 1.5,
       }}
       viewBox="0 0 1024 1024"
@@ -41,32 +41,39 @@ const KnobMain: React.FC<KnobMainProps> = ({ position }) => {
           fill="none"
           d="M202.085 686.883C135.815 633.107 94.786 558.75 94.786 476.659c0-163.901 163.552-296.967 365.003-296.967 201.45 0 365.002 133.066 365.002 296.967 0 81.743-40.682 155.817-106.457 209.539"
           style={{
-            fill: '#ebebeb',
+            fill: "#ebebeb",
             fillOpacity: 0,
-            stroke: 'currentColor',
-            strokeWidth: '13.2px',
+            stroke: "currentColor",
+            strokeWidth: "13.2px",
           }}
           transform="matrix(1.35193 0 0 1.66166 -109.602 -280.045)"
         />
         <path
           d="m960 960-97.415-97.415"
           style={{
-            fill: 'none',
-            stroke: 'currentColor',
+            fill: "none",
+            stroke: "currentColor",
             strokeWidth: 20,
           }}
         />
         <path
           d="M164.09 859.91 64 960"
           style={{
-            fill: 'none',
-            stroke: 'currentColor',
+            fill: "none",
+            stroke: "currentColor",
             strokeWidth: 20,
           }}
           transform="matrix(.98664 .01336 .01336 .98664 -11.974 11.974)"
         />
       </g>
-      <g style={{ cursor: 'pointer', rotate: `${angle}deg`, transformOrigin: '50%', transition: 'rotate 100ms' }}>
+      <g
+        style={{
+          cursor: "pointer",
+          rotate: `${angle}deg`,
+          transformOrigin: "50%",
+          transition: "rotate 100ms",
+        }}
+      >
         <ellipse
           cx={459.789}
           cy={476.659}
@@ -74,25 +81,25 @@ const KnobMain: React.FC<KnobMainProps> = ({ position }) => {
           rx={365.003}
           ry={296.967}
           style={{
-            fill: '#ebebeb',
+            fill: "#ebebeb",
             fillOpacity: 0,
-            stroke: 'currentColor',
-            strokeWidth: '15.88px',
+            stroke: "currentColor",
+            strokeWidth: "15.88px",
           }}
           transform="matrix(1.12427 0 0 1.38185 -4.929 -146.67)"
         />
         <path
           d="M512 512 223.86 800.14"
           style={{
-            fill: 'none',
-            stroke: 'currentColor',
+            fill: "none",
+            stroke: "currentColor",
             strokeWidth: 20,
           }}
         />
       </g>
     </svg>
-  )
-}
+  );
+};
 ```
 
 ## Creating the main component and add mouse wheel interaction
@@ -101,21 +108,28 @@ I wanted to be able to set the value using the mouse wheel. But first I needed t
 
 ```typescript
 interface KnobProps {
-  label?: string
-  max: number
-  min: number
-  onChange?: (value: number) => void
-  step: number
-  value: number
+  label?: string;
+  max: number;
+  min: number;
+  onChange?: (value: number) => void;
+  step: number;
+  value: number;
 }
-const Knob: React.FC<KnobProps> = ({ label, onChange, value, step, min, max }) => {
+const Knob: React.FC<KnobProps> = ({
+  label,
+  onChange,
+  value,
+  step,
+  min,
+  max,
+}) => {
   return (
     <KnobWrapper>
       <KnobMain position={position} />
       <KnobLabel>{label}</KnobLabel>
     </KnobWrapper>
-  )
-}
+  );
+};
 
 // I like styled-components
 const KnobWrapper = styled.div`
@@ -124,7 +138,7 @@ const KnobWrapper = styled.div`
   margin-bottom: 0.8rem;
   position: relative;
   touch-action: none;
-`
+`;
 
 const KnobLabel = styled.div`
   text-align: center;
@@ -132,38 +146,50 @@ const KnobLabel = styled.div`
   margin-top: -0.5rem;
   font-size: 0.8rem;
   line-height: 1rem;
-`
+`;
 ```
 
 Then I needed to add the actual mouse wheel handler:
 
 ```typescript
-const Knob: React.FC<KnobProps> = ({ label, onChange, value, step, min, max }) => {
-  const [value, setValue] = useState(inputValue)
+const Knob: React.FC<KnobProps> = ({
+  label,
+  onChange,
+  value,
+  step,
+  min,
+  max,
+}) => {
+  const [value, setValue] = useState(inputValue);
 
   const handleMouseWheel = useCallback<WheelEventHandler<HTMLDivElement>>(
-    (e) => setValue(e.deltaY < 0 ? Math.max(min, value - step) : Math.min(max, value + step)),
-    [max, min, step, value]
-  )
+    (e) =>
+      setValue(
+        e.deltaY < 0
+          ? Math.max(min, value - step)
+          : Math.min(max, value + step),
+      ),
+    [max, min, step, value],
+  );
 
   const handleChange = useCallback(
     (v: number) => {
-      onChange?.(v)
+      onChange?.(v);
     },
-    [onChange]
-  )
+    [onChange],
+  );
 
   useEffect(() => {
-    handleChange(value)
-  }, [handleChange, value])
+    handleChange(value);
+  }, [handleChange, value]);
 
   return (
     <KnobWrapper onWheel={handleMouseWheel}>
       <KnobMain position={position} />
       <KnobLabel>{label}</KnobLabel>
     </KnobWrapper>
-  )
-}
+  );
+};
 ```
 
 The function `handleMouseWheel` extracts the property `deltaY` to determine in what direction the mousewheel is turned. Based on that it subtracts or adds a value up to the the set boundaries.

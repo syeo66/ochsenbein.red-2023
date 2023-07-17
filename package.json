@@ -16,8 +16,21 @@
     "astro": "^2.4.1"
   },
   "devDependencies": {
-    "prettier": "^2.8.8",
-    "prettier-plugin-astro": "^0.10.0",
+    "prettier": "^3.0.0",
+    "prettier-plugin-astro": "^0.11.0",
     "sass": "^1.62.1"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": "*.astro",
+        "options": {
+          "parser": "astro"
+        }
+      }
+    ],
+    "plugins": [
+      "prettier-plugin-astro"
+    ]
   }
 }

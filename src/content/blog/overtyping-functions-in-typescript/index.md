@@ -1,9 +1,10 @@
 ---
-title: 'Typescript: Are you over-typing your functions?'
-date: '2022-07-22T21:15:00.000Z'
-description: 'When defining a function in Typescript, the first instinct might tell you to just use your existing interfaces or even classes. This might not be optimal...'
-devTo: 'https://dev.to/syeo66/typescript-are-you-overtyping-your-functions-52ge'
+title: "Typescript: Are you over-typing your functions?"
+date: "2022-07-22T21:15:00.000Z"
+description: "When defining a function in Typescript, the first instinct might tell you to just use your existing interfaces or even classes. This might not be optimal..."
+devTo: "https://dev.to/syeo66/typescript-are-you-overtyping-your-functions-52ge"
 ---
+
 When defining a function in Typescript, the first instinct might tell you to use your existing interfaces or even classes. This might not be optimal. Let's start with a simple example:
 
 ```typescript
@@ -15,9 +16,9 @@ interface Cat {
 
 const getName = (cat: Cat): string => {
   return cat.name;
-}
+};
 
-const cat: Cat = { name: 'Garfield', furColor: 'orange', age: 3 }
+const cat: Cat = { name: "Garfield", furColor: "orange", age: 3 };
 
 console.log(getName(cat));
 ```
@@ -30,7 +31,7 @@ interface Person {
   age: number;
 }
 
-const person: Person = { name: 'John', age: 30 }
+const person: Person = { name: "John", age: 30 };
 
 console.log(getName(person));
 ```
@@ -51,7 +52,7 @@ The solution is to rewrite the function to make it more flexible:
 ```typescript
 const getName = (obj: { name: string }): string => {
   return obj.name;
-}
+};
 ```
 
 Now we can use it for cats and people, and every other object which has a `name` property. The function does not need anything else to work with, so we should no restrict it artificially.
@@ -65,9 +66,9 @@ This might seem obvious in this case. But I have seen a lot of more complex func
 We can do even better by using [generics](https://www.typescriptlang.org/docs/handbook/2/generics.html).
 
 ```typescript
-const getName = <T extends { name: unknown }>(obj: T): T['name']  => {
+const getName = <T extends { name: unknown }>(obj: T): T["name"] => {
   return obj.name;
-}
+};
 ```
 
 This way we don't even have to know the type of `name`. It will be inferred from the type of the object. Of course in this special case, it does not make much sense to have a name be anything else than a string. But it helps to highlight the power of generics.

@@ -1,30 +1,32 @@
 ---
-title: 'Typescript: It''s not actually validating your types.'
-date: '2022-08-11T21:15:00.000Z'
-description: 'Types in typescript try to ensure you are working with the data you expect. But...'
-devTo: 'https://dev.to/syeo66/typescript-its-not-actually-validating-your-types-1mn3'
+title: "Typescript: It's not actually validating your types."
+date: "2022-08-11T21:15:00.000Z"
+description: "Types in typescript try to ensure you are working with the data you expect. But..."
+devTo: "https://dev.to/syeo66/typescript-its-not-actually-validating-your-types-1mn3"
 ---
 
 Typescript is a nice thing: It lets you define types and make sure your classes and functions adhere to certain expectations. It forces you to think about what data you put into a function and what you will get out of it. If you get that wrong and try to call a function which expects a sting with a - let's say - number, the compiler will let you know. Which is a good thing.
 
 Sometimes this leads to a misconception: I met people who believed typescript would make sure the types are what you say you are. But I have to tell you: Typescript does not do that.
 
-Why? Well, Typescript is working on compiler level, not during the runtime. If you take a look at how the code Typescript produces does look like you'll see it translates to Javascript and strips all the types from the code. 
+Why? Well, Typescript is working on compiler level, not during the runtime. If you take a look at how the code Typescript produces does look like you'll see it translates to Javascript and strips all the types from the code.
 
 Typescript code:
+
 ```typescript
 const justAFunction = (n: number): string => {
-  return `${n}`
-}
+  return `${n}`;
+};
 
-console.log(justAFunction)
+console.log(justAFunction);
 ```
 
 The resulting Javascript code (assuming you are transpiling to a more recent EcmaScript version):
+
 ```typescript
 "use strict";
 const justAFunction = (n) => {
-    return `${n}`;
+  return `${n}`;
 };
 console.log(justAFunction);
 ```
@@ -33,19 +35,21 @@ It only checks if the types seem to be correct based on your source code. It doe
 
 ## Checking types
 
-Is typescript useless then? Well, no, far from it. When you use it right it forces you to check your types if there are no guarantees ("unfortunately" it also provides  some easy ways out).
+Is typescript useless then? Well, no, far from it. When you use it right it forces you to check your types if there are no guarantees ("unfortunately" it also provides some easy ways out).
 
 Let's change our example a little bit:
+
 ```typescript
 const justAFunction = (str: string[] | string): string => {
-  return str.join(' ') 
-}
+  return str.join(" ");
+};
 
-console.log(justAFunction(["Hello", "World"]))
-console.log(justAFunction("Hello World"))
+console.log(justAFunction(["Hello", "World"]));
+console.log(justAFunction("Hello World"));
 ```
 
 When compiling this will lead to the following error:
+
 ```
 index.ts:2:14 - error TS2339: Property 'join' does not exist on type 'string | string[]'.
   Property 'join' does not exist on type 'string'.
@@ -57,19 +61,19 @@ index.ts:2:14 - error TS2339: Property 'join' does not exist on type 'string | s
 Found 1 error in index.ts:2
 ```
 
-The compiler forces to think about the type of the variable `str`. One solution would be to only allow `string[]` into the function. The other is to test if the variable contains the correct type. 
+The compiler forces to think about the type of the variable `str`. One solution would be to only allow `string[]` into the function. The other is to test if the variable contains the correct type.
 
 ```typescript
 const justAFunction = (str: string[] | string): string => {
-  if (typeof str === 'string') {
-    return str
+  if (typeof str === "string") {
+    return str;
   }
 
-  return str.join(' ') 
-}
+  return str.join(" ");
+};
 
-console.log(justAFunction(["Hello", "World"]))
-console.log(justAFunction("Hello World"))
+console.log(justAFunction(["Hello", "World"]));
+console.log(justAFunction("Hello World"));
 ```
 
 This would also translate into Javascript and the type would be tested. In this case we would only have a guarantee that it is a `string` and we would only be assuming it is an array.
@@ -94,9 +98,9 @@ Then we may want to create an interface for this data:
 
 ```typescript
 interface User {
-  firstname: string
-  lastname: string
-  birthday: string
+  firstname: string;
+  lastname: string;
+  birthday: string;
 }
 ```
 
@@ -104,9 +108,9 @@ And use fetch to retrieve the user data from the API:
 
 ```typescript
 const retrieveUser = async (): Promise<User> => {
-  const resp = await fetch('/user/me')
-  return resp.json()
-}
+  const resp = await fetch("/user/me");
+  return resp.json();
+};
 ```
 
 This would work and typescript would recognize the type of the user. But it might lie to you. Let's say the birthday would contain a number with the timestamp (might be somewhat problematic for people born before 1970... but that's not the point now). The type would still treat the birthday as a string despite having an actual number in it... and Javascript will treat it as a number. Because, as we said, Typescript does not check the actual values.
@@ -115,20 +119,22 @@ What should we do now. Write a validator function. This might look something lik
 
 ```typescript
 const validate = (obj: any): obj is User => {
-  return obj !== null 
-    && typeof obj === 'object'
-    && 'firstname' in obj
-    && 'lastname' in obj
-    && 'birthday' in obj
-    && typeof obj.firstname === 'string'
-    && typeof obj.lastname === 'string'
-    && typeof obj.birthday === 'string'
-}
+  return (
+    obj !== null &&
+    typeof obj === "object" &&
+    "firstname" in obj &&
+    "lastname" in obj &&
+    "birthday" in obj &&
+    typeof obj.firstname === "string" &&
+    typeof obj.lastname === "string" &&
+    typeof obj.birthday === "string"
+  );
+};
 
-const user = await retrieveUser()
+const user = await retrieveUser();
 
 if (!validate(user)) {
-  throw Error('User data is invalid')
+  throw Error("User data is invalid");
 }
 ```
 
@@ -143,26 +149,26 @@ There are protocols inherently dealing with types: [gRPC](https://grpc.io), [tRP
 Our `User` type would be defined like this:
 
 ```typescript
-import { z } from 'zod'
+import { z } from "zod";
 
 const User = z.object({
-    firstname: z.string(),
-    lastname: z.string(),
-    birthday: z.string()
-  })
+  firstname: z.string(),
+  lastname: z.string(),
+  birthday: z.string(),
+});
 ```
 
 The type could then be extracted (inferred) from this schema.
 
 ```typescript
-const UserType = z.infer<User>
+const UserType = z.infer<User>;
 ```
 
 and the validation looks like this
 
 ```typescript
-const userResp = await retrieveUser()
-const user = User.parse(userResp)
+const userResp = await retrieveUser();
+const user = User.parse(userResp);
 ```
 
 Now we have a type and validated data and the code we had to write is only marginally more than without the validation function.

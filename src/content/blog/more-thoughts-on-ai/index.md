@@ -1,8 +1,8 @@
 ---
-title: 'More thoughts on the state of AI'
-date: '2023-04-04T11:15:30.000Z'
-description: 'So, the cat is out of the bag and we learn more and more. But still we do not know where everything will lead to.'
-devTo: 'https://dev.to/syeo66/more-thoughts-on-the-state-of-ai-46in'
+title: "More thoughts on the state of AI"
+date: "2023-04-04T11:15:30.000Z"
+description: "So, the cat is out of the bag and we learn more and more. But still we do not know where everything will lead to."
+devTo: "https://dev.to/syeo66/more-thoughts-on-the-state-of-ai-46in"
 ---
 
 I recently wrote an [article](https://ochsenbein.red/musings-on-ai/) with my thoughts on the state of AI. Little did I know about the flurry of developments we would face in only a few days. We are now at a point where high-profile people are asking to pause and think. And I am sure we should pause and think. Does this mean we should stop the development? It's not even a question: The cat is out of the bag - there is no stopping now. What we should do is increase the efforts in the fields of AI safety, ethics, social development, and the definition of human work... by a lot.
@@ -27,7 +27,7 @@ As we have seen the flood of generated content will drown the work of skilled pe
 
 ## Privacy and international laws
 
-On March 31st of 2023 (a few days ago) Italy banned ChatGPT and OpenAI was forced to block users from Italy. Italy claimed OpenAI would not comply with GDPR, EUs privacy and data protection law. GDPR requires anyone providing a service in the EU to ensure certain things. Amongst others, anyone has the right to have any data about them to be deleted or corrected. 
+On March 31st of 2023 (a few days ago) Italy banned ChatGPT and OpenAI was forced to block users from Italy. Italy claimed OpenAI would not comply with GDPR, EUs privacy and data protection law. GDPR requires anyone providing a service in the EU to ensure certain things. Amongst others, anyone has the right to have any data about them to be deleted or corrected.
 
 Now, when you understand how a large language model is trained it quickly gets obvious this is not a small thing to do. How do you delete data in a model which is a black box? How do you correct specific data? And if the model is just hallucinating facts about you, how can these be corrected? The same questions pop up when thinking about pictures of existing people. There are privacy rights like the right to one's image.
 
@@ -49,7 +49,6 @@ The other possibility is that AGI might not require to be human level. But then 
 
 Another thing to consider is if those models actually could get conscious. How would we be able to determine consciousness in such a model? How would we have to treat it if we only would have to suspect it has some sort of consciousness? Wouldn't morality and even the law not have to extend to machines then? (Well, to be fair, we, as humans, are already pretty bad at treating animals...)
 
-## Final words 
+## Final words
 
 Those are only a few - rather chaotic - thoughts on AI. We do not know what the future will bring. But I'm pretty sure we need to do better than we do today when it comes to AI safety, ethics, social impact and similar fields.
-

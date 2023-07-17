@@ -1,8 +1,8 @@
 ---
-title: 'React: Create a simple analog clock'
-date: '2022-08-08T21:15:00.000Z'
-description: 'Create a simple analog clock React component and learn a bit about time.'
-devTo: 'https://dev.to/syeo66/react-create-a-simple-analog-clock-2k1k'
+title: "React: Create a simple analog clock"
+date: "2022-08-08T21:15:00.000Z"
+description: "Create a simple analog clock React component and learn a bit about time."
+devTo: "https://dev.to/syeo66/react-create-a-simple-analog-clock-2k1k"
 ---
 
 I recently had to create a simple analog clock component for my React project. I now want to share how I approached it.
@@ -16,12 +16,12 @@ Let's start.
 First we need to have the base component. It will do nothing yet except of drawing the clock face.
 
 ```typescript
-import React  from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const DemoClock: React.FC = () => {
-  return <Clock />
-}
+  return <Clock />;
+};
 
 const Clock = styled.div`
   background-color: white;
@@ -31,9 +31,9 @@ const Clock = styled.div`
   margin-bottom: 0.5rem;
   position: relative;
   width: 100px;
-`
+`;
 
-export default DemoClock
+export default DemoClock;
 ```
 
 This will create a round white background with a black border with a diameter of 100 pixels.
@@ -51,7 +51,7 @@ const Hours = styled.div`
   position: absolute;
   top: 25px;
   width: 5px;
-`
+`;
 ```
 
 This will create a 30 pixels long black hand with rounded edges and a small overlap of 5 px in the center.
@@ -69,8 +69,8 @@ const DemoClock: React.FC = () => {
     <Clock>
       <Hours />
     </Clock>
-  )
-}
+  );
+};
 ```
 
 Repeat this for the minutes and seconds hand. My clock has now all three hands.
@@ -83,8 +83,8 @@ const DemoClock: React.FC = () => {
       <Minutes />
       <Seconds />
     </Clock>
-  )
-}
+  );
+};
 
 const Clock = styled.div`
   background-color: white;
@@ -94,7 +94,7 @@ const Clock = styled.div`
   margin-bottom: 0.5rem;
   position: relative;
   width: 100px;
-`
+`;
 
 const Hours = styled.div`
   background-color: black;
@@ -104,19 +104,19 @@ const Hours = styled.div`
   position: absolute;
   top: 25px;
   width: 5px;
-`
+`;
 
 const Minutes = styled(Hours)`
   height: 45px;
   top: 10px;
-`
+`;
 
 const Seconds = styled(Hours)`
   background-color: red;
   height: 50px;
   top: 5px;
   width: 1px;
-`
+`;
 ```
 
 ## 3. Make the hours hand displays the current time
@@ -146,8 +146,9 @@ We multiply the hours by 60 and add the current minutes to it. This way the valu
 ```typescript
 const Hours = styled.div<DateProps>`
   ...
-  transform: rotateZ(${({ time }) => ((time.getHours() % 12) * 60 + time.getMinutes()) * 0.5}deg);
-`
+  transform: rotateZ(${({ time }) =>
+    ((time.getHours() % 12) * 60 + time.getMinutes()) * 0.5}deg);
+`;
 ```
 
 ## 4. Repeat for the minutes and seconds
@@ -157,13 +158,14 @@ We add the rotation of the minutes and seconds hand in a similar way.
 ```typescript
 const Minutes = styled(Hours)`
   ...
-  transform: rotateZ(${({ time }) => (time.getMinutes() * 60 + time.getSeconds()) * 0.1}deg);
-`
+  transform: rotateZ(${({ time }) =>
+    (time.getMinutes() * 60 + time.getSeconds()) * 0.1}deg);
+`;
 
 const Seconds = styled(Hours)`
   ...
-  transform: rotateZ(${({ time }) => time.getSeconds()  * 6}deg);
-`
+  transform: rotateZ(${({ time }) => time.getSeconds() * 6}deg);
+`;
 ```
 
 ## 5. Update the time
@@ -172,16 +174,16 @@ Now we just have to add the time to the clock component. We can do this using a 
 
 ```typescript
 const DemoClock: React.FC = () => {
-  const [time, setTime] = useState(() => new Date())
+  const [time, setTime] = useState(() => new Date());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const now = new Date()
-      setTime(now)
-    }, 1000)
+      const now = new Date();
+      setTime(now);
+    }, 1000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Clock>
@@ -189,8 +191,8 @@ const DemoClock: React.FC = () => {
       <Minutes time={time} />
       <Seconds time={time} />
     </Clock>
-  )
-}
+  );
+};
 ```
 
 One small thing to consider. When doing those updates each second, in the worst case the timer could be off by almost one second. Think about this. When the timer runs around 990 milliseconds after the full second, it would seem like being off by one second. Most of the time this is probably not an issue. But you have to think about the needed precision when dealing with time. Let's assume you're working on an auctions platform, then the timing might be quite important and even a second off might annoy some customers.

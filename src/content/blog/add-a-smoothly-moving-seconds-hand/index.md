@@ -1,8 +1,8 @@
 ---
-title: 'React: Smoothly move the seconds hand of the analog clock'
-date: '2022-08-15T21:15:00.000Z'
-description: 'I created an analog clock in React. Now I wanted to have the seconds hand move smoothly.'
-devTo: 'https://dev.to/syeo66/react-smoothly-move-the-seconds-hand-of-the-analog-click-hji'
+title: "React: Smoothly move the seconds hand of the analog clock"
+date: "2022-08-15T21:15:00.000Z"
+description: "I created an analog clock in React. Now I wanted to have the seconds hand move smoothly."
+devTo: "https://dev.to/syeo66/react-smoothly-move-the-seconds-hand-of-the-analog-click-hji"
 ---
 
 In my last [article](https://ochsenbein.red/create-a-simple-analog-clock/) about the analog clock I showed how I built it. The seconds hand is just jumping from second to second but I wanted to have it move smoothly.
@@ -18,7 +18,7 @@ const Seconds = styled(Hours).attrs<DateProps>(({ time }) => ({
   left: calc(50% - 0.5px);
   top: 5px;
   width: 1px;
-`
+`;
 ```
 
 ## First try
@@ -35,14 +35,15 @@ const Seconds = styled(Hours).attrs<DateProps>(({ time }) => ({
   top: 5px;
   transition: transform 1s linear;
   width: 1px;
-`
+`;
 ```
 
-*That was it! Job done...*
+_That was it! Job done..._
 
 Unfortunately not.
 
 At first it looked good until the hand moved from 59 seconds to 0. What happens with the calulation?
+
 ```
 59 * 6 = 354
 0 * 6 = 0
@@ -71,8 +72,8 @@ The number was simply too big. Also I'm not sure if using something like 9963290
 
 Other solutions I was thinking of were:
 
-* Add a modulo of 86400 which would reset the value to 0 every 24 hours. Then the reversing of the hand would only happen once a day at midnight. Better, but I did not want any reversing at all.
-* Storing the starting moment and calculating the difference between now and the start (`Date.now() - start`). This solutions seems reasonable so I went on and tried it.
+- Add a modulo of 86400 which would reset the value to 0 every 24 hours. Then the reversing of the hand would only happen once a day at midnight. Better, but I did not want any reversing at all.
+- Storing the starting moment and calculating the difference between now and the start (`Date.now() - start`). This solutions seems reasonable so I went on and tried it.
 
 ## Using the time delta
 
@@ -80,22 +81,24 @@ To calculate the difference bettween the start time and now I had to store the s
 
 ```typescript
 const DemoClock: React.FC = () => {
-  const [time, setTime] = useState(() => new Date())
-  const start = useRef(time)
+  const [time, setTime] = useState(() => new Date());
+  const start = useRef(time);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const now = new Date()
+      const now = new Date();
       if (time.getSeconds() !== now.getSeconds()) {
-        setTime(now)
+        setTime(now);
       }
-    }, 250)
+    }, 250);
 
-    return () => clearInterval(interval)
-  }, [time])
+    return () => clearInterval(interval);
+  }, [time]);
 
-  const seconds = Math.floor((time.getTime() - start.current.getTime()) / 1000) 
-    + start.current.getSeconds() + 1
+  const seconds =
+    Math.floor((time.getTime() - start.current.getTime()) / 1000) +
+    start.current.getSeconds() +
+    1;
 
   return (
     <Clock>
@@ -103,8 +106,8 @@ const DemoClock: React.FC = () => {
       <Minutes time={time} />
       <Seconds seconds={seconds} />
     </Clock>
-  )
-}
+  );
+};
 ```
 
 This works just fine. But one thing still bothered me. The degrees are growing larger and larger. I don't think this is a problem but I wanted to try a solution which does not need these large numbers.
@@ -163,4 +166,3 @@ const DemoClock: React.FC = () => {
 ```
 
 As you can see by defining the start and end of each step we never fall into the situation to have to move backwards. But also it allows us to change the time at any point without having the hand rotating like a maniac and we never need to use degrees larger than 360. To me this felt like the ideal solution.
-

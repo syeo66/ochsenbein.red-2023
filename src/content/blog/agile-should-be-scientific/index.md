@@ -1,9 +1,10 @@
 ---
 title: 'Comparing "Agile" to the scientific process'
-date: '2022-07-26T21:15:00.000Z'
+date: "2022-07-26T21:15:00.000Z"
 description: 'Let''s take at the scientific process and compare it to "Agile", and which important steps usually get skipped.'
-devTo: 'https://dev.to/syeo66/comparing-agile-to-the-scientific-process-24mb'
+devTo: "https://dev.to/syeo66/comparing-agile-to-the-scientific-process-24mb"
 ---
+
 If you are a Software Engineer or are involved in any kind of software development you probably heard something about "Agile".
 Also, you probably noticed there are about as many opinions on what "Agile" is as there are people, and some more.
 

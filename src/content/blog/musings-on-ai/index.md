@@ -1,8 +1,8 @@
 ---
-title: 'Thoughts on the current state of AI'
-date: '2023-03-19T11:15:00.000Z'
-description: 'The hype is real. AI is everywhere and everyone is talking about it. What do I think about it? What is the future of AI?'
-devTo: 'https://dev.to/syeo66/thoughts-on-the-current-state-of-ai-322f'
+title: "Thoughts on the current state of AI"
+date: "2023-03-19T11:15:00.000Z"
+description: "The hype is real. AI is everywhere and everyone is talking about it. What do I think about it? What is the future of AI?"
+devTo: "https://dev.to/syeo66/thoughts-on-the-current-state-of-ai-322f"
 ---
 
 Here we are! AI is the big thing everyone was expecting for years now. It's not a new idea. More than half a century ago science fiction writers were already talking about it. But now it is here. What will we do with it? Where will it lead to? What happens to our society?

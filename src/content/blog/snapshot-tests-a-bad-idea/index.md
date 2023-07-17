@@ -1,9 +1,10 @@
 ---
-title: 'Why do I think snapshot tests are a bad idea?'
-date: '2022-07-20T15:01:00.000Z'
-description: 'Discussing snapshot tests and why I think they are a bad idea. And what you should do instead.'
-devTo: 'https://dev.to/syeo66/why-do-i-think-snapshot-tests-are-a-bad-idea-1imp'
+title: "Why do I think snapshot tests are a bad idea?"
+date: "2022-07-20T15:01:00.000Z"
+description: "Discussing snapshot tests and why I think they are a bad idea. And what you should do instead."
+devTo: "https://dev.to/syeo66/why-do-i-think-snapshot-tests-are-a-bad-idea-1imp"
 ---
+
 When testing your code you'll come across a lot of different problems to solve. Unfortunately, an application does usually not work with strictly pure functions and without any side effects at all. So we have to mock stuff, or simulate environments, inject dependencies and a bunch of other things. If you've ever worked on the frontend side and tried to write tests you will have noticed that it is particularly hard to test components. One possible solution are [snapshot tests](https://jestjs.io/docs/snapshot-testing).
 
 ## What is snapshot testing?
