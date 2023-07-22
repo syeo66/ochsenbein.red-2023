@@ -8,6 +8,7 @@ const posts = (await getCollection("blog")).sort((a, b) => b.data.date.valueOf()
 
 <Layout>
   <section>
+    <h2>Blog</h2>
     <ul>
       {
         posts.map((post) => (
@@ -28,13 +29,21 @@ const posts = (await getCollection("blog")).sort((a, b) => b.data.date.valueOf()
   }
   ul li {
     display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 1rem;
   }
   ul li :global(time) {
-    flex: 0 0 130px;
     font-style: italic;
-    color: #595959;
+    color: var(--color-text);
+  }
+  ul li a {
+    text-decoration: none;
+    filter: brightness(160%);
   }
   ul li a:visited {
-    color: #8e32dc;
+    filter: brightness(1200%);
+  }
+  h2 {
+    color: var(--color-text);
   }
 </style>

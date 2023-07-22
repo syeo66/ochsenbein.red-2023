@@ -3,7 +3,7 @@ const today = new Date();
 ---
 
 <footer>
-  &copy; {today.getFullYear() !== 2023 && "2023 - "}{today.getFullYear()} Red Ochsenbein. All rights reserved.
+  &copy; {today.getFullYear() !== 2023 && "2023 - "}{today.getFullYear()} Red Ochsenbein
 </footer>
 
 <style>
@@ -12,7 +12,7 @@ const today = new Date();
     position: fixed;
     bottom: 0;
     left: 0;
-    color: #bbb;
+    color: var(--color-text);
     font-size: 0.7rem;
     background: rgba(0, 0, 0, 0.7);
     padding: 0.5rem 1rem 0 0;
