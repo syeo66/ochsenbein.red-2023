@@ -3,38 +3,59 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const pageTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
+const pageDescription = description || SITE_DESCRIPTION;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title={pageTitle} description={pageDescription} />
   </head>
   <body>
-    <Header title={SITE_TITLE} />
+    <Header title={pageTitle} />
     <main>
       <slot />
     </main>
     <Footer />
     <style lang="scss">
       body {
-        animation-name: background;
-        animation-timing-function: linear;
-        animation-duration: 60s;
-        animation-iteration-count: 1;
-        background: black;
-        background-image: url("/background.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 100% 100%;
         color: #fafafa;
         min-height: 100dvh;
         box-sizing: border-box;
+
         @media (prefers-reduced-motion) {
           animation: none;
         }
 
         &::before {
+          z-index: -2;
+          content: "";
+          position: fixed;
+        animation-name: background;
+        animation-timing-function: linear;
+        animation-duration: 60s;
+        animation-iteration-count: 1;
+          background: black;
+          background-image: url("/background.png");
+          background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 100% 100%;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0
+        }
+
+        &::after {
           animation-name: portrait;
           animation-duration: 1s;
           animation-iteration-count: 1;
