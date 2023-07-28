@@ -21,10 +21,12 @@ const pageDescription = description || SITE_DESCRIPTION;
     <BaseHead title={pageTitle} description={pageDescription} />
   </head>
   <body>
+    <div class="wrapper">
     <Header title={pageTitle} />
     <main>
       <slot />
     </main>
+    </div>
     <Footer />
     <style lang="scss">
       body {
@@ -75,6 +77,12 @@ const pageDescription = description || SITE_DESCRIPTION;
           background-size: contain;
           background-position: bottom right;
         }
+      }
+
+      .wrapper {
+        margin: 0 auto;
+        max-width: 65ch;
+        padding: 20px;
       }
 
       main {
