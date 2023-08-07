@@ -22,10 +22,10 @@ const pageDescription = description || SITE_DESCRIPTION;
   </head>
   <body>
     <div class="wrapper">
-    <Header title={pageTitle} />
-    <main>
-      <slot />
-    </main>
+      <Header title={pageTitle} />
+      <main>
+        <slot />
+      </main>
     </div>
     <Footer />
     <style lang="scss">
@@ -42,19 +42,19 @@ const pageDescription = description || SITE_DESCRIPTION;
           z-index: -2;
           content: "";
           position: fixed;
-        animation-name: background;
-        animation-timing-function: linear;
-        animation-duration: 60s;
-        animation-iteration-count: 1;
+          animation-name: background;
+          animation-timing-function: linear;
+          animation-duration: 60s;
+          animation-iteration-count: 1;
           background: black;
           background-image: url("/background.png");
           background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 100% 100%;
+          background-repeat: no-repeat;
+          background-position: 100% 100%;
           top: 0;
           left: 0;
           bottom: 0;
-          right: 0
+          right: 0;
         }
 
         &::after {
@@ -89,6 +89,10 @@ const pageDescription = description || SITE_DESCRIPTION;
         background: rgba(0, 0, 0, 0.7);
         border-radius: 0.5rem;
         padding: 0 2rem 2rem;
+
+        :global(:first-child) {
+          margin-top: 0;
+        }
 
         @media screen and (min-width: 768px) {
           padding: 2rem;
