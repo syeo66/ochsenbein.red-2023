@@ -1,0 +1,11 @@
+{
+  "slug": "valyo",
+  "name": "Valyo’s digital financial market platform",
+  "image": "../images/valyo.png",
+  "employer": "Infocentric / Valtech",
+  "client": "Valyo AG",
+  "short": "Award winning digital market platform connecting institutional investors and issuers. Awarded with two times silver and one bronze at Best of Swiss Web 2021.",
+  "description": "Two times silver and one bronze award at Best of Swiss Web 2021. A digital market platform connecting institutional investors and issuers directly. The platform provides real-time book building and a sophisticated allocation simulator.",
+  "tasks": "Frontend development of the platform using React and GraphQL.",
+  "tags": ["Typescript", "React.js", "Apollo", "GraphQL", "Sass", "CSS Animation"]
+}

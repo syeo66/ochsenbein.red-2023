@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/Page.astro";
+import { getCollection } from "astro:content";
+
+const data = await getCollection("portfolio");
+---
+
+<Layout>
+  <h2>Some projects I was working on</h2>
+
+  {
+    data.map(({ id, data: entry }) => {
+      return (
+        <div class="entry">
+          <div class="image">
+            <img loading="lazy" src={entry.image} alt={entry.name} />
+          </div>
+          <div>
+            <h3>{entry.name}</h3>
+            <p>{entry.short}</p>
+            <p>{entry.description}</p>
+            <hr />
+            <p>
+              <strong>Task:</strong> {entry.tasks}
+              <br />
+              <strong>Client:</strong> {entry.client}
+              <br />
+              <strong>Agency:</strong> {entry.employer}
+              <br />
+            </p>
+
+            <p>{entry.tags.join(", ")}</p>
+            {entry.website && (
+              <p>
+                <a href={entry.website} target="_blank">
+                  {entry.website}
+                </a>
+              </p>
+            )}
+          </div>
+        </div>
+      );
+    })
+  }
+</Layout>
+
+<style>
+  h2 {
+    color: var(--color-text);
+  }
+
+  .entry {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-text);
+  }
+
+  .entry strong {
+    display: inline-block;
+    width: 6rem;
+  }
+
+  .entry .image {
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+
+  .entry .image img {
+    border-radius: 0.5rem;
+  }
+</style>

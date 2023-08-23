@@ -1,0 +1,12 @@
+{
+  "slug": "jass-federal",
+  "name": "Jass Federal",
+  "image": "../images/jassfederal.png",
+  "employer": "Gbanga",
+  "client": "Swisscom",
+  "website": "https://www.jassfederal.ch/",
+  "short": "Gold Award at Best of Swiss Web 2021 in Innovation. Multiplayer swiss cardgame implementation playable on the phone, in the browser and on the smart TV.",
+  "description": "",
+  "tasks": "Frontend development of the game.",
+  "tags": ["Javascript", "Phaser.js", "Rx.js", "Websockets", "CSS Animation"]
+}

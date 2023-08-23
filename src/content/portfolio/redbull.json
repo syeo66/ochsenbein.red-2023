@@ -1,0 +1,12 @@
+{
+  "slug": "redbull-stuff",
+  "name": "RedBull - Summer Edition",
+  "image": "../images/redbull.png",
+  "employer": "Gbanga",
+  "client": "Red Bull",
+  "website": "https://ovo.gbanga.net/games/kluge/",
+  "short": "Interactive storytelling with a huge zoomable game map, many hidden features and animations. Demo of the map without interactive elements in the link.",
+  "description": "",
+  "tasks": "Development of the game.",
+  "tags": ["Javascript", "Leaflet.js", "jQuery", "HTML5", "CSS", "CSS Animation"]
+}

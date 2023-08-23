@@ -1,0 +1,12 @@
+{
+  "slug": "swica",
+  "name": "Swica",
+  "image": "../images/swica.png",
+  "employer": "Valtech",
+  "client": "Swica",
+  "website": "https://swica.ch/",
+  "short": "A new online presence for the swiss insurance company Swica.",
+  "description": "",
+  "tasks": "Frontend Development Lead for the relaunch of the website. Vue.js, jQuery and Handlebars frontend for a Sitecore environment.",
+  "tags": ["Typescript", "Vue.js", "CSS", "Handlebars"]
+}
