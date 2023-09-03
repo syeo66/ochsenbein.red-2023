@@ -21,18 +21,19 @@ const blog = defineCollection({
 
 const portfolio = defineCollection({
   type: "data",
-  schema: ({image})=>z.object({
-    slug: z.string(),
-    name: z.string(),
-    image: image(),
-    employer: z.string(),
-    client: z.string(),
-    website: z.string().optional(),
-    short: z.string(),
-    description: z.string(),
-    tasks: z.string(),
-    tags: z.array(z.string()),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      slug: z.string(),
+      name: z.string(),
+      image: image(),
+      employer: z.string(),
+      client: z.string(),
+      website: z.string().optional(),
+      short: z.string(),
+      description: z.string(),
+      tasks: z.string(),
+      tags: z.array(z.string()),
+    }),
 });
 
 export const collections = { blog, portfolio };
