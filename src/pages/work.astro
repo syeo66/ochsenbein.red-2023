@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Page.astro";
 import { getCollection } from "astro:content";
+import {Image} from "astro:assets";
 
 const data = await getCollection("portfolio");
 ---
@@ -13,7 +14,7 @@ const data = await getCollection("portfolio");
       return (
         <div class="entry">
           <div class="image">
-            <img loading="lazy" src={entry.image} alt={entry.name} />
+            <Image loading="lazy" src={entry.image} alt={entry.name} />
           </div>
           <div>
             <h3>{entry.name}</h3>

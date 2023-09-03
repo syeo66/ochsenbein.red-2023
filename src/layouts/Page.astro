@@ -16,18 +16,20 @@ const pageDescription = description || SITE_DESCRIPTION;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:animate="none">
   <head>
     <BaseHead title={pageTitle} description={pageDescription} />
   </head>
   <body>
-    <div class="wrapper">
+    <div class="background" transition:persist></div>
+    <div class="wrapper" >
       <Header title={pageTitle} />
-      <main>
+      <main transition:animate="slide">
         <slot />
       </main>
     </div>
     <Footer />
+    <div class="me" transition:persist></div>
     <style lang="scss">
       body {
         color: #fafafa;
@@ -38,7 +40,7 @@ const pageDescription = description || SITE_DESCRIPTION;
           animation: none;
         }
 
-        &::before {
+        .background {
           z-index: -2;
           content: "";
           position: fixed;
@@ -47,7 +49,7 @@ const pageDescription = description || SITE_DESCRIPTION;
           animation-duration: 60s;
           animation-iteration-count: 1;
           background: black;
-          background-image: url("/background.png");
+          background-image: url("../assets/background.png");
           background-size: cover;
           background-repeat: no-repeat;
           background-position: 100% 100%;
@@ -57,7 +59,7 @@ const pageDescription = description || SITE_DESCRIPTION;
           right: 0;
         }
 
-        &::after {
+        .me {
           animation-name: portrait;
           animation-duration: 1s;
           animation-iteration-count: 1;
@@ -72,7 +74,7 @@ const pageDescription = description || SITE_DESCRIPTION;
           right: 0;
           background: rgba(0, 0, 0, 0.7);
           z-index: -1;
-          background: url("/red.png");
+          background: url("../assets/red.png");
           background-repeat: no-repeat;
           background-size: contain;
           background-position: bottom right;

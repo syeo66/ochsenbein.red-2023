@@ -21,10 +21,10 @@ const blog = defineCollection({
 
 const portfolio = defineCollection({
   type: "data",
-  schema: z.object({
+  schema: ({image})=>z.object({
     slug: z.string(),
     name: z.string(),
-    image: z.string(),
+    image: image(),
     employer: z.string(),
     client: z.string(),
     website: z.string().optional(),

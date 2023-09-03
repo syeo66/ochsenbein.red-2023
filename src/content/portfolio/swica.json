@@ -1,7 +1,7 @@
 {
   "slug": "swica",
   "name": "Swica",
-  "image": "../images/swica.png",
+  "image": "../../assets/images/swica.png",
   "employer": "Valtech",
   "client": "Swica",
   "website": "https://swica.ch/",
