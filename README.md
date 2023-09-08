@@ -4,7 +4,7 @@
 
 ## TODOs
 
-- [ ] add /work
+- [x] add /work
 - [ ] add /fun
 - [ ] Deployment
 - [ ] Back from articles to blog overview
