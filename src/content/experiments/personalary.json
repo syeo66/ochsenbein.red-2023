@@ -1,0 +1,8 @@
+{
+  "slug": "personalary",
+  "name": "Personalary - Personal 'Smart Mirror'",
+  "image": "../../assets/images/personalary.png",
+  "website": "https://github.com/syeo66/personalary",
+  "short": "A personal signage dashboard web application using React and Express. This application is intended to run on a Raspberry Pi to be a beautiful 'smart mirror' or 'smart picture frame' and dashboard. (Work in Progress)",
+  "tags": ["React", "Typescript", "Zod", "Websockets", "Express", "Rx.js", "react-query"]
+}

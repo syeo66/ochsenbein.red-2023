@@ -3,11 +3,11 @@ import Layout from "../layouts/Page.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
-const data = await getCollection("portfolio");
+const data = await getCollection("experiments");
 ---
 
 <Layout>
-  <h2>Some projects I was working on</h2>
+  <h2>Experiments</h2>
 
   {
     data.map(({ data: entry }) => {
@@ -21,14 +21,6 @@ const data = await getCollection("portfolio");
             <p>{entry.short}</p>
             <p>{entry.description}</p>
             <hr />
-            <p>
-              <strong>Task:</strong> {entry.tasks}
-              <br />
-              <strong>Client:</strong> {entry.client}
-              <br />
-              <strong>Agency:</strong> {entry.employer}
-              <br />
-            </p>
 
             <p>{entry.tags.join(", ")}</p>
             {entry.website && (

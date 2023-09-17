@@ -1,0 +1,8 @@
+{
+  "slug": "synth",
+  "name": "Synth Test - Simple modular synth",
+  "image": "../../assets/images/synth.png",
+  "website": "https://synth.raven.ch",
+  "short": "A simple modular synthesizer to play around with the Web Audio API.",
+  "tags": ["React", "Typescript", "Web Audio API"]
+}

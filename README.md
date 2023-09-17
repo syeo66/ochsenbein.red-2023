@@ -5,7 +5,7 @@
 ## TODOs
 
 - [x] add /work
-- [ ] add /fun
+- [x] add /fun
 - [ ] Deployment
 - [ ] Back from articles to blog overview
 - [ ] Pagination in blog articles

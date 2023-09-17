@@ -36,4 +36,18 @@ const portfolio = defineCollection({
     }),
 });
 
-export const collections = { blog, portfolio };
+const experiments = defineCollection({
+  type: "data",
+  schema: ({ image }) =>
+    z.object({
+      slug: z.string(),
+      name: z.string(),
+      image: image(),
+      website: z.string().optional(),
+      short: z.string(),
+      description: z.string().optional(),
+      tags: z.array(z.string()),
+    }),
+});
+
+export const collections = { blog, portfolio, experiments };

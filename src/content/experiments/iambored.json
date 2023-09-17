@@ -1,0 +1,8 @@
+{
+  "slug": "iambored",
+  "name": "iambored - a ChatGPT powered tool suggesting things to do",
+  "image": "../../assets/images/iambored.png",
+  "website": "https://github.com/syeo66/iambored",
+  "short": "A ChatGPT powered tool suggesting things to do when you are bored.",
+  "tags": ["ChatGPT", "OpenAI", "Typescript", "Node.js"]
+}
