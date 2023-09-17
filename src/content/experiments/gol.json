@@ -1,0 +1,8 @@
+{
+  "slug": "game-of-life",
+  "name": "Game of Life",
+  "image": "../../assets/images/game-of-life.png",
+  "website": "https://syeo66.github.io/game-of-life/",
+  "short": "A simple implementation of Conway's Game of Life.",
+  "tags": ["javascript", "html", "css"]
+}
