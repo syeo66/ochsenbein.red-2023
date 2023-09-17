@@ -1,6 +1,6 @@
 ---
 title: "Typescript: Are you over-typing your functions?"
-date: "2022-07-22T21:15:00.000Z"
+pubDate: "2022-07-22T21:15:00.000Z"
 description: "When defining a function in Typescript, the first instinct might tell you to just use your existing interfaces or even classes. This might not be optimal..."
 devTo: "https://dev.to/syeo66/typescript-are-you-overtyping-your-functions-52ge"
 ---

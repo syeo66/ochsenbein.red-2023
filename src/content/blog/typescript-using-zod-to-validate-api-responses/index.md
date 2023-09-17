@@ -1,6 +1,6 @@
 ---
 title: "Typescript: It's not actually validating your types."
-date: "2022-08-11T21:15:00.000Z"
+pubDate: "2022-08-11T21:15:00.000Z"
 description: "Types in typescript try to ensure you are working with the data you expect. But..."
 devTo: "https://dev.to/syeo66/typescript-its-not-actually-validating-your-types-1mn3"
 ---

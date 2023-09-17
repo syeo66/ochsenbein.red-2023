@@ -1,6 +1,6 @@
 ---
 title: "Thoughts on the current state of AI"
-date: "2023-03-19T11:15:00.000Z"
+pubDate: "2023-03-19T11:15:00.000Z"
 description: "The hype is real. AI is everywhere and everyone is talking about it. What do I think about it? What is the future of AI?"
 devTo: "https://dev.to/syeo66/thoughts-on-the-current-state-of-ai-322f"
 ---

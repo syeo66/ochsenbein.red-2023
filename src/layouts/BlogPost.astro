@@ -6,7 +6,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, date, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate: date, updatedDate, heroImage } = Astro.props;
 ---
 
 <Layout title={title} description={description}>

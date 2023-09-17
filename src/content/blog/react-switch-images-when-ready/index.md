@@ -1,6 +1,6 @@
 ---
 title: "React: Switch background images when they are ready"
-date: "2022-12-08T21:15:00.000Z"
+pubDate: "2022-12-08T21:15:00.000Z"
 description: "I created a changing background image and made sure it loads before displayed."
 devTo: "https://dev.to/syeo66/react-switch-background-images-when-they-are-ready-896"
 ---

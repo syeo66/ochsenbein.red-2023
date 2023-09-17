@@ -1,6 +1,6 @@
 ---
 title: "Animating HTML Elements Using FLIP"
-date: "2022-08-06T21:15:00.000Z"
+pubDate: "2022-08-06T21:15:00.000Z"
 description: "FLIP - First, Last, Invert, Play."
 devTo: "https://dev.to/syeo66/animating-html-elements-using-flip-ngd"
 ---

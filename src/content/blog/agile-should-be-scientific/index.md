@@ -1,6 +1,6 @@
 ---
 title: 'Comparing "Agile" to the scientific process'
-date: "2022-07-26T21:15:00.000Z"
+pubDate: "2022-07-26T21:15:00.000Z"
 description: 'Let''s take at the scientific process and compare it to "Agile", and which important steps usually get skipped.'
 devTo: "https://dev.to/syeo66/comparing-agile-to-the-scientific-process-24mb"
 ---

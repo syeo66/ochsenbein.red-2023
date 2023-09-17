@@ -1,6 +1,6 @@
 ---
 title: "More thoughts on the state of AI"
-date: "2023-04-04T11:15:30.000Z"
+pubDate: "2023-04-04T11:15:30.000Z"
 description: "So, the cat is out of the bag and we learn more and more. But still we do not know where everything will lead to."
 devTo: "https://dev.to/syeo66/more-thoughts-on-the-state-of-ai-46in"
 ---

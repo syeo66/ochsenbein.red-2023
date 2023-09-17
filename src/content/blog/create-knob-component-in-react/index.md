@@ -1,6 +1,6 @@
 ---
 title: "React: Create a turnable knob component"
-date: "2023-03-13T11:15:00.000Z"
+pubDate: "2023-03-13T11:15:00.000Z"
 description: "I try to create a modular synth for the web. To do this I needed some turnable knobs and I like to share how I did it."
 devTo: "https://dev.to/syeo66/react-create-a-turnable-knob-component-5c85"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "React: Smoothly move the seconds hand of the analog clock"
-date: "2022-08-15T21:15:00.000Z"
+pubDate: "2022-08-15T21:15:00.000Z"
 description: "I created an analog clock in React. Now I wanted to have the seconds hand move smoothly."
 devTo: "https://dev.to/syeo66/react-smoothly-move-the-seconds-hand-of-the-analog-click-hji"
 ---
