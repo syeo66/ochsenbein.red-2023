@@ -6,6 +6,7 @@
 
 - [x] add /work
 - [x] add /fun
-- [ ] Deployment
+- [x] Deployment
+- [ ] add links to dev.to
 - [ ] Back from articles to blog overview
 - [ ] Pagination in blog articles
