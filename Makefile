@@ -40,5 +40,6 @@ test: node_modules
 dist : node_modules src
 	${ASTRO} build
 
-node_modules : yarn.lock package.json
-	yarn
+node_modules : package-lock.json package.json
+	npm install
+	touch node_modules

@@ -1,8 +1,8 @@
 FROM node:18.17 as node
 WORKDIR /usr/src/app
-COPY package*.json .
-COPY yarn.lock .
-RUN yarn
+COPY package.json .
+COPY package-lock.json .
+RUN npm install
 COPY . .
 RUN make build
 
