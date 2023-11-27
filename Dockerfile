@@ -1,4 +1,4 @@
-FROM node:18.17 as node
+FROM node:20 as node
 WORKDIR /usr/src/app
 COPY package.json .
 COPY package-lock.json .
