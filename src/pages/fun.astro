@@ -22,7 +22,11 @@ const data = await getCollection("experiments");
             <p>{entry.description}</p>
             <hr />
 
-            <p>{entry.tags.join(", ")}</p>
+            <p>
+              {entry.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </p>
             {entry.website && (
               <p>
                 <a href={entry.website} target="_blank">
@@ -46,8 +50,11 @@ const data = await getCollection("experiments");
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--color-text);
+    box-shadow: 0 2px 1px rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
   }
 
   .entry strong {
@@ -63,5 +70,14 @@ const data = await getCollection("experiments");
   .entry .image img {
     border-radius: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 0.5rem;
+    background: var(--color-primary);
+    color: var(--color-text);
   }
 </style>
