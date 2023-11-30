@@ -2,6 +2,7 @@
 import Layout from "../layouts/Page.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import Tag from "../components/Tag.astro";
 
 const data = await getCollection("experiments");
 ---
@@ -22,9 +23,9 @@ const data = await getCollection("experiments");
             <p>{entry.description}</p>
             <hr />
 
-            <p>
+            <p class="tags">
               {entry.tags.map((tag) => (
-                <span class="tag">{tag}</span>
+                <Tag>{tag}</Tag>
               ))}
             </p>
             {entry.website && (
@@ -72,12 +73,9 @@ const data = await getCollection("experiments");
     border: 1px solid rgba(255, 255, 255, 0.5);
   }
 
-  .tag {
-    display: inline-block;
-    padding: 0.25rem 0.5rem;
-    margin-right: 0.5rem;
-    border-radius: 0.5rem;
-    background: var(--color-primary);
-    color: var(--color-text);
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
 </style>
