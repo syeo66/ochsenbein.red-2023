@@ -53,11 +53,9 @@ const data = await getCollection("portfolio");
 <style>
   h2 {
     color: var(--color-text);
-    scroll-snap-align: start;
   }
 
   .entry {
-    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -86,14 +84,8 @@ const data = await getCollection("portfolio");
   }
 
   @keyframes fade-in {
-    from {
-      scale: 0.5;
-      opacity: 0;
-    }
-    to {
-      scale: 1;
-      opacity: 1;
-    }
+    from {scale: .5; opacity: 0}
+    to {scale: 1; opacity: 1}
   }
 
   .entry .image img {
