@@ -2,6 +2,8 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import Me from "../assets/red.png";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 export interface Props {
@@ -50,7 +52,9 @@ const portraitSlide = {
       </main>
     </div>
     <Footer />
-    <div class="me" transition:persist transition:animate={portraitSlide}></div>
+    <div class="me" transition:persist transition:animate={portraitSlide}>
+      <Image src={Me} alt="Red Ochsenbein" />
+    </div>
     <style lang="scss">
       body {
         color: #fafafa;
@@ -81,18 +85,17 @@ const portraitSlide = {
         }
 
         .me {
-          content: "";
           position: fixed;
-          top: 0;
-          left: 0;
           bottom: 0;
+          height: 100%;
           right: 0;
-          background: rgba(0, 0, 0, 0.7);
           z-index: -1;
-          background: url("../assets/red.png");
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-position: bottom right;
+
+          img {
+            object-fit: contain;
+            object-position: bottom right;
+            max-height: 100vh;
+          }
         }
       }
 

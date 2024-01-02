@@ -84,8 +84,14 @@ const data = await getCollection("portfolio");
   }
 
   @keyframes fade-in {
-    from {scale: .5; opacity: 0}
-    to {scale: 1; opacity: 1}
+    from {
+      scale: 0.5;
+      opacity: 0;
+    }
+    to {
+      scale: 1;
+      opacity: 1;
+    }
   }
 
   .entry .image img {
