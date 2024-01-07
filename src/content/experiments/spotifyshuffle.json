@@ -1,8 +1,8 @@
 {
   "slug": "spotify-shuffle",
-  "name": "Advanced Shuffle for Spotify",
+  "name": "Shufflify - Advanced Shuffle for Spotify",
   "image": "../../assets/images/shuffle.png",
   "website": "https://shuffle.raven.ch/",
   "short": "Improved shuffle for Spotify. I was just not happy with Spotifys shuffle function, so I built one.",
-  "tags": ["Javascript", "React", "Redux", "react-query"]
+  "tags": ["Typescript", "Svelte", "Spotify Web API"]
 }
