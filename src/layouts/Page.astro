@@ -74,7 +74,11 @@ const portraitSlide = {
           animation-duration: 60s;
           animation-iteration-count: 1;
           background: black;
-          background-image: url("../assets/background.png");
+          background-image: image-set(
+            url("../assets/background.webp") type("image/webp"),
+            url("../assets/background.jpg") type("image/jpeg"),
+            url("../assets/background.png") type("image/png")
+          );
           background-size: cover;
           background-repeat: no-repeat;
           background-position: 100% 100%;
