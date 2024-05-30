@@ -11,34 +11,36 @@ const data = await getCollection("experiments");
   <h2>Experiments</h2>
 
   {
-    data.map(({ data: entry }) => {
-      return (
-        <div class="entry">
-          <div class="image">
-            <Image loading="lazy" src={entry.image} alt={entry.name} />
-          </div>
-          <div>
-            <h3>{entry.name}</h3>
-            <p>{entry.short}</p>
-            <p>{entry.description}</p>
-            <hr />
+    data
+      .sort(() => Math.random() - 0.5)
+      .map(({ data: entry }) => {
+        return (
+          <div class="entry">
+            <div class="image">
+              <Image loading="lazy" src={entry.image} alt={entry.name} />
+            </div>
+            <div>
+              <h3>{entry.name}</h3>
+              <p>{entry.short}</p>
+              <p>{entry.description}</p>
+              <hr />
 
-            <p class="tags">
-              {entry.tags.map((tag) => (
-                <Tag>{tag}</Tag>
-              ))}
-            </p>
-            {entry.website && (
-              <p>
-                <a href={entry.website} target="_blank">
-                  {entry.website}
-                </a>
+              <p class="tags">
+                {entry.tags.map((tag) => (
+                  <Tag>{tag}</Tag>
+                ))}
               </p>
-            )}
+              {entry.website && (
+                <p>
+                  <a href={entry.website} target="_blank">
+                    {entry.website}
+                  </a>
+                </p>
+              )}
+            </div>
           </div>
-        </div>
-      );
-    })
+        );
+      })
   }
 </Layout>
 

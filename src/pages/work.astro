@@ -11,42 +11,44 @@ const data = await getCollection("portfolio");
   <h2>Some projects I was working on</h2>
 
   {
-    data.map(({ data: entry }) => {
-      return (
-        <div class="entry">
-          <div class="image">
-            <Image loading="lazy" src={entry.image} alt={entry.name} />
-          </div>
-          <div>
-            <h3>{entry.name}</h3>
-            <p>{entry.short}</p>
-            <p>{entry.description}</p>
-            <hr />
-            <p>
-              <strong>Task:</strong> {entry.tasks}
-              <br />
-              <strong>Client:</strong> {entry.client}
-              <br />
-              <strong>Agency:</strong> {entry.employer}
-              <br />
-            </p>
-
-            <p class="tags">
-              {entry.tags.map((tag) => (
-                <Tag>{tag}</Tag>
-              ))}
-            </p>
-            {entry.website && (
+    data
+      .sort(() => Math.random() - 0.5)
+      .map(({ data: entry }) => {
+        return (
+          <div class="entry">
+            <div class="image">
+              <Image loading="lazy" src={entry.image} alt={entry.name} />
+            </div>
+            <div>
+              <h3>{entry.name}</h3>
+              <p>{entry.short}</p>
+              <p>{entry.description}</p>
+              <hr />
               <p>
-                <a href={entry.website} target="_blank">
-                  {entry.website}
-                </a>
+                <strong>Task:</strong> {entry.tasks}
+                <br />
+                <strong>Client:</strong> {entry.client}
+                <br />
+                <strong>Agency:</strong> {entry.employer}
+                <br />
               </p>
-            )}
+
+              <p class="tags">
+                {entry.tags.map((tag) => (
+                  <Tag>{tag}</Tag>
+                ))}
+              </p>
+              {entry.website && (
+                <p>
+                  <a href={entry.website} target="_blank">
+                    {entry.website}
+                  </a>
+                </p>
+              )}
+            </div>
           </div>
-        </div>
-      );
-    })
+        );
+      })
   }
 </Layout>
 
