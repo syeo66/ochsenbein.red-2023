@@ -4,7 +4,7 @@
   "image": "../../assets/images/redbull.png",
   "employer": "Gbanga",
   "client": "Red Bull",
-  "short": "Interactive storytelling with a huge zoomable game map, many hidden features and animations. Demo of the map without interactive elements in the link.",
+  "short": "Interactive storytelling with a huge zoomable game map, many hidden features and animations.",
   "description": "",
   "tasks": "Development of the game.",
   "tags": ["Javascript", "Leaflet.js", "jQuery", "HTML5", "CSS", "CSS Animation"]
