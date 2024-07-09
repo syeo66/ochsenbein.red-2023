@@ -24,14 +24,20 @@ const data = await getCollection("portfolio");
               <p>{entry.short}</p>
               <p>{entry.description}</p>
               <hr />
-              <p>
-                <strong>Task:</strong> {entry.tasks}
-                <br />
-                <strong>Client:</strong> {entry.client}
-                <br />
-                <strong>Agency:</strong> {entry.employer}
-                <br />
-              </p>
+              <div class="facts">
+                <>
+                  <strong>Task:</strong>
+                  <p>{entry.tasks}</p>
+                </>
+                <>
+                  <strong>Client:</strong>
+                  <p>{entry.client}</p>
+                </>
+                <>
+                  <strong>Agency:</strong>
+                  <p>{entry.employer}</p>
+                </>
+              </div>
 
               <p class="tags">
                 {entry.tags.map((tag) => (
@@ -55,6 +61,15 @@ const data = await getCollection("portfolio");
 <style>
   h2 {
     color: var(--color-text);
+  }
+
+  .facts {
+    display: grid;
+    grid-template-columns: max-content auto;
+  }
+
+  .facts > * {
+    margin: 0;
   }
 
   .entry {
