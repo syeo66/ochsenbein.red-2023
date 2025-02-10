@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
 import Me from "../assets/red.png";
+import Background from "../assets/background.png";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 export interface Props {
@@ -44,7 +45,7 @@ const portraitSlide = {
     <BaseHead title={pageTitle} description={pageDescription} />
   </head>
   <body>
-    <div class="background" transition:persist></div>
+    <div class="background" transition:persist><Image src={Background} loading="eager" alt="" /></div>
     <div class="wrapper">
       <Header title={pageTitle} />
       <main transition:animate="slide">
@@ -69,23 +70,22 @@ const portraitSlide = {
           z-index: -2;
           content: "";
           position: fixed;
-          animation-name: background;
-          animation-timing-function: linear;
-          animation-duration: 60s;
-          animation-iteration-count: 1;
           background: black;
-          background-image: image-set(
-            url("../assets/background.webp") type("image/webp"),
-            url("../assets/background.jpg") type("image/jpeg"),
-            url("../assets/background.png") type("image/png")
-          );
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: 100% 100%;
           top: 0;
           left: 0;
           bottom: 0;
           right: 0;
+
+          img {
+            width: 100dvw;
+            height: 100dvh;
+            object-fit: cover;
+
+            animation-name: background;
+            animation-timing-function: linear;
+            animation-duration: 60s;
+            animation-iteration-count: 1;
+          }
         }
 
         .me {
@@ -127,10 +127,10 @@ const portraitSlide = {
 
       @keyframes background {
         0% {
-          background-position: 0 100%;
+          object-position: 0 100%;
         }
         100% {
-          background-position: 100% 100%;
+          object-position: 100% 100%;
         }
       }
 
