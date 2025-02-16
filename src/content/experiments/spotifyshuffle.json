@@ -3,6 +3,6 @@
   "name": "Shufflify - Advanced Shuffle for Spotify",
   "image": "../../assets/images/shuffle.png",
   "website": "https://shuffle.raven.ch/",
-  "short": "Improved shuffle for Spotify. I was just not happy with Spotifys shuffle function, so I built one.",
+  "short": "Improved shuffle for Spotify. I was just not happy with Spotifys shuffle function, so I built one. Will stop working later in 2025 since Spotify does no longer allow the login method used.",
   "tags": ["Typescript", "Svelte", "Spotify Web API"]
 }

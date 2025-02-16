@@ -1,0 +1,8 @@
+{
+  "slug": "go-spotify-shuffle",
+  "name": "Go Shufflify - Advanced Shuffle for Spotify in Go",
+  "image": "../../assets/images/go-shuffle.png",
+  "website": "https://github.com/syeo66/go-shufflify",
+  "short": "Improved shuffle for Spotify written in Go. I was just not happy with Spotifys shuffle function, so I built one.",
+  "tags": ["Go", "HTMX", "Spotify Web API"]
+}
