@@ -1,0 +1,12 @@
+{
+  "slug": "wisek",
+  "name": "iGEKO WiSek",
+  "image": "../../assets/images/wisek.png",
+  "employer": "ABF Informatik",
+  "client": "multiple",
+  "website": "https://swica.ch/",
+  "short": "Next generation frontend for iGEKO WiSek",
+  "description": "Frontend for iGeko WiSek: The specialized application for cantonal offices in the fields of economy and labor, environment, energy, and metrology/calibration services integrates the digital management of businesses, GEVER (electronic records management), and DMS (document management system) into a single solution. ",
+  "tasks": "Frontend architecture development and implmentation for the next generation application iGEKO WiSek.",
+  "tags": ["Typescript", "React", "CSS", "react-query"]
+}
