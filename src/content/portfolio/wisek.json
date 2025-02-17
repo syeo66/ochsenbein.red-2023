@@ -7,6 +7,6 @@
   "website": "https://www.abf.ch/software/igeko-wisek/",
   "short": "",
   "description": "Frontend for iGeko WiSek: The specialized application for cantonal offices in the fields of economy and labor, environment, energy, and metrology/calibration services integrates the digital management of businesses, GEVER (electronic records management), and DMS (document management system) into a single solution. ",
-  "tasks": "Frontend architecture development and implmentation.",
+  "tasks": "Frontend architecture development and implementation.",
   "tags": ["Typescript", "React", "CSS", "react-query"]
 }
