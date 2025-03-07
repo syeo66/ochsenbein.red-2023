@@ -25,8 +25,8 @@ serve: build
 	${ASTRO} preview
 
 deploy: node_modules
-	git switch main && git push all && git push
-	git switch stage && git pull && git merge main && git push all && git push
+	git switch main  && git push
+	git switch stage && git pull && git merge main && git push
 	git switch main
 
 clean: node_modules
