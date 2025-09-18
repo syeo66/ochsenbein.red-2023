@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /imprint/
+
+# Specific restrictions for imprint page
+User-agent: Googlebot
+Disallow: /imprint/
+
+User-agent: Bingbot
+Disallow: /imprint/
+
+User-agent: Slurp
+Disallow: /imprint/
+
+# Sitemap location (if you have one)
+# Sitemap: https://ochsenbein.red/sitemap.xml

@@ -1,0 +1,158 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import Me from "../assets/red.png";
+import Background from "../assets/background.png";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const pageTitle = `Imprint | ${SITE_TITLE}`;
+const pageDescription = "Legal imprint and contact information";
+
+const portraitAnimation = {
+  old: {
+    name: "portrait",
+    duration: "0.7s",
+    delay: "0.4s",
+    easing: "ease-in-out",
+    fillMode: "backwards",
+  },
+  new: {
+    name: "portraitRev",
+    duration: "0.7s",
+    easing: "ease-in-out",
+    fillMode: "forwards",
+  },
+};
+
+const portraitSlide = {
+  forwards: portraitAnimation,
+  backwards: portraitAnimation,
+};
+---
+
+<!doctype html>
+<html lang="en" transition:animate="none">
+  <head>
+    <BaseHead title={pageTitle} description={pageDescription} />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex" />
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex" />
+    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex" />
+  </head>
+  <body>
+    <div class="background" transition:persist><Image src={Background} loading="eager" alt="" /></div>
+    <div class="wrapper">
+      <Header title={pageTitle} />
+      <main transition:animate="slide">
+        <h1>Imprint</h1>
+
+        <p><strong>Red Ochsenbein</strong></p>
+        <p>Haldenweg 3<br>3400 Burgdorf<br>Switzerland</p>
+
+        <p>Phone: <a href="tel:+41763737020">+41 76 373 70 20</a></p>
+        <p>Email: <a href="mailto:website@c40d9986.com">website@c40d9986.com</a></p>
+      </main>
+    </div>
+    <Footer />
+    <div class="me" transition:persist transition:animate={portraitSlide}>
+      <Image src={Me} alt="Red Ochsenbein" loading="eager" />
+    </div>
+    <style lang="scss">
+      body {
+        color: #fafafa;
+        min-height: 100%;
+        box-sizing: border-box;
+
+        @media (prefers-reduced-motion) {
+          animation: none;
+        }
+
+        .background {
+          z-index: -2;
+          content: "";
+          position: fixed;
+          background: black;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+
+          img {
+            width: 100dvw;
+            height: 100dvh;
+            object-fit: cover;
+
+            animation-name: background;
+            animation-timing-function: linear;
+            animation-duration: 60s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+          }
+        }
+
+        .me {
+          position: fixed;
+          bottom: 0;
+          height: 100%;
+          display: flex;
+          right: 0;
+          z-index: -1;
+
+          img {
+            object-fit: contain;
+            object-position: bottom right;
+            max-height: 100vh;
+          }
+        }
+      }
+
+      .wrapper {
+        margin: 0 auto;
+        max-width: 65ch;
+        padding: 20px;
+      }
+
+      main {
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 0.5rem;
+        padding: 1rem 2rem 2rem;
+        margin: 0 -2rem;
+
+        :global(:first-child) {
+          margin-top: 0;
+        }
+
+        @media screen and (min-width: 768px) {
+          padding: 2rem;
+        }
+      }
+
+      @keyframes background {
+        0% {
+          object-position: 0 100%;
+        }
+        100% {
+          object-position: 100% 100%;
+        }
+      }
+
+      @keyframes portrait {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
+      }
+      @keyframes portraitRev {
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+    </style>
+  </body>
+</html>

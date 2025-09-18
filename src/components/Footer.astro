@@ -3,7 +3,7 @@ const today = new Date();
 ---
 
 <footer>
-  &copy; {today.getFullYear() !== 2023 && "2023 - "}{today.getFullYear()} Red Ochsenbein
+  &copy; {today.getFullYear() !== 2023 && "2023 - "}{today.getFullYear()} Red Ochsenbein | <a href="/imprint/" rel="nofollow noindex">Imprint</a>
 </footer>
 
 <style>
@@ -17,5 +17,14 @@ const today = new Date();
     background: rgba(0, 0, 0, 0.7);
     padding: 0.5rem 1rem 0 0;
     border-top-right-radius: 0.5rem;
+
+    a {
+      color: var(--color-text);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 </style>
