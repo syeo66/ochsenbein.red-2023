@@ -1,11 +1,15 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 const blog = defineCollection({
-  type: "content",
+  loader: glob({
+    pattern: "**/index.{md,mdx}",
+    base: "./src/content/blog",
+    generateId: ({ entry }) => entry.replace(/\/index\.(md|mdx)$/, ""),
+  }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    // Transform string to Date object
     pubDate: z
       .string()
       .or(z.date())
@@ -20,7 +24,7 @@ const blog = defineCollection({
 });
 
 const portfolio = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "*.json", base: "./src/content/portfolio" }),
   schema: ({ image }) =>
     z.object({
       slug: z.string(),
@@ -37,7 +41,7 @@ const portfolio = defineCollection({
 });
 
 const experiments = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "*.json", base: "./src/content/experiments" }),
   schema: ({ image }) =>
     z.object({
       slug: z.string(),
