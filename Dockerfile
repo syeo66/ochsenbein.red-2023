@@ -8,6 +8,7 @@ COPY pnpm-lock.yaml .
 COPY pnpm-workspace.yaml .
 RUN pnpm install --frozen-lockfile
 COPY . .
+RUN pnpm astro telemetry disable
 RUN make build
 
 FROM nginx AS server
