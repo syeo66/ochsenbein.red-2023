@@ -2,6 +2,14 @@
   "name": "ochsenbein-red-2023",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@11.1.2",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "sharp"
+    ]
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -13,7 +21,8 @@
     "@astrojs/mdx": "^4.3.12",
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
-    "astro": "^5.16.4"
+    "astro": "^5.16.4",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "prettier": "^3.0.0",

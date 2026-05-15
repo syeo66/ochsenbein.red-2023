@@ -40,6 +40,6 @@ test: node_modules
 dist : node_modules src
 	${ASTRO} build
 
-node_modules : package-lock.json package.json
-	npm install
+node_modules : pnpm-lock.yaml package.json
+	pnpm install
 	touch node_modules
