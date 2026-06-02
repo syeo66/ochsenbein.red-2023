@@ -2,7 +2,7 @@
   "slug": "synth",
   "name": "Synth Test - Simple modular synth",
   "image": "../../assets/images/synth.png",
-  "website": "https://synth.raven.ch",
+  "website": "https://github.com/syeo66/audio-synth-test",
   "short": "A simple modular synthesizer to play around with the Web Audio API.",
   "tags": ["React", "Typescript", "Web Audio API"]
 }
