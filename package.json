@@ -28,7 +28,7 @@
     "prettier": "^3.9.7",
     "prettier-plugin-astro": "^1.0.1",
     "sass": "^1.104.1",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "prettier": {
     "overrides": [
