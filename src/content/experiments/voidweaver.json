@@ -1,0 +1,8 @@
+{
+  "slug": "voidweaver",
+  "name": "Voidweaver - Android music player for Subsonic servers",
+  "image": "../../assets/images/voidweaver.png",
+  "website": "https://github.com/syeo66/voidweaver",
+  "short": "A Flutter music player that streams from my own Navidrome server through subsoxy, a proxy that learns from plays and skips to make shuffle smarter. Gapless playback, ReplayGain, offline buffering and full lock screen and Bluetooth controls.",
+  "tags": ["Flutter", "Dart", "Kotlin", "Media3", "Subsonic API"]
+}
