@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import Layout from "../layouts/Page.astro";
 import Tag from "../components/Tag.astro";
+import { shuffle } from "../utils/shuffle";
 
 const data = await getCollection("experiments");
 ---
@@ -11,8 +12,7 @@ const data = await getCollection("experiments");
   <h2>Experiments</h2>
 
   {
-    data
-      .sort(() => Math.random() - 0.5)
+    shuffle(data)
       .map(({ data: entry }) => {
         return (
           <div class="entry">
