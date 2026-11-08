@@ -3,19 +3,13 @@
   "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@11.1.2",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "esbuild",
-      "sharp"
-    ]
-  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "vp config"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.1",
@@ -25,22 +19,8 @@
     "sharp": "^0.35.4"
   },
   "devDependencies": {
-    "prettier": "^3.9.7",
-    "prettier-plugin-astro": "^1.0.1",
     "sass": "^1.104.1",
-    "typescript": "^7.0.2"
-  },
-  "prettier": {
-    "overrides": [
-      {
-        "files": "*.astro",
-        "options": {
-          "parser": "astro"
-        }
-      }
-    ],
-    "plugins": [
-      "prettier-plugin-astro"
-    ]
+    "typescript": "^7.0.2",
+    "vite-plus": "catalog:"
   }
 }
