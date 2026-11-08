@@ -6,7 +6,14 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate: date, updatedDate, heroImage, devTo } = Astro.props;
+const {
+  title,
+  description,
+  pubDate: date,
+  updatedDate,
+  heroImage,
+  devTo,
+} = Astro.props;
 ---
 
 <Layout title={title} description={description}>
@@ -15,21 +22,17 @@ const { title, description, pubDate: date, updatedDate, heroImage, devTo } = Ast
     <h1 class="title">{title}</h1>
     <div class="date-comment">
       <FormattedDate date={date} />
-      {
-        devTo && (
-          <div class="dev-to">
-            <a href={devTo}>Read and comment on Dev.to</a>
-          </div>
-        )
-      }
-    </div>
-    {
-      updatedDate && (
-        <div class="last-updated-on">
-          Last updated on <FormattedDate date={updatedDate} />
+      {devTo && (
+        <div class="dev-to">
+          <a href={devTo}>Read and comment on Dev.to</a>
         </div>
-      )
-    }
+      )}
+    </div>
+    {updatedDate && (
+      <div class="last-updated-on">
+        Last updated on <FormattedDate date={updatedDate} />
+      </div>
+    )}
     <hr />
     <slot />
   </article>

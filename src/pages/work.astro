@@ -11,51 +11,48 @@ const data = await getCollection("portfolio");
 <Layout>
   <h2>Some projects I was working on</h2>
 
-  {
-    shuffle(data)
-      .map(({ data: entry }) => {
-        return (
-          <div class="entry">
-            <div class="image">
-              <Image loading="lazy" src={entry.image} alt={entry.name} />
-            </div>
-            <div>
-              <h3>{entry.name}</h3>
-              <p>{entry.short}</p>
-              <p>{entry.description}</p>
-              <hr />
-              <div class="facts">
-                <>
-                  <strong>Task:</strong>
-                  <p>{entry.tasks}</p>
-                </>
-                <>
-                  <strong>Client:</strong>
-                  <p>{entry.client}</p>
-                </>
-                <>
-                  <strong>Agency:</strong>
-                  <p>{entry.employer}</p>
-                </>
-              </div>
-
-              <p class="tags">
-                {entry.tags.map((tag) => (
-                  <Tag>{tag}</Tag>
-                ))}
-              </p>
-              {entry.website && (
-                <p>
-                  <a href={entry.website} target="_blank">
-                    {entry.website}
-                  </a>
-                </p>
-              )}
-            </div>
+  {shuffle(data).map(({ data: entry }) => {
+    return (
+      <div class="entry">
+        <div class="image">
+          <Image loading="lazy" src={entry.image} alt={entry.name} />
+        </div>
+        <div>
+          <h3>{entry.name}</h3>
+          <p>{entry.short}</p>
+          <p>{entry.description}</p>
+          <hr />
+          <div class="facts">
+            <>
+              <strong>Task:</strong>
+              <p>{entry.tasks}</p>
+            </>
+            <>
+              <strong>Client:</strong>
+              <p>{entry.client}</p>
+            </>
+            <>
+              <strong>Agency:</strong>
+              <p>{entry.employer}</p>
+            </>
           </div>
-        );
-      })
-  }
+
+          <p class="tags">
+            {entry.tags.map((tag) => (
+              <Tag>{tag}</Tag>
+            ))}
+          </p>
+          {entry.website && (
+            <p>
+              <a href={entry.website} target="_blank">
+                {entry.website}
+              </a>
+            </p>
+          )}
+        </div>
+      </div>
+    );
+  })}
 </Layout>
 
 <style>

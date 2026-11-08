@@ -36,22 +36,44 @@ const portraitSlide = {
 <html lang="en" transition:animate="none">
   <head>
     <BaseHead title={pageTitle} description={pageDescription} />
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex" />
-    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex" />
-    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex" />
+    <meta
+      name="robots"
+      content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex"
+    />
+    <meta
+      name="googlebot"
+      content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex"
+    />
+    <meta
+      name="bingbot"
+      content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex"
+    />
   </head>
   <body>
-    <div class="background" transition:persist><Image src={Background} loading="eager" alt="" /></div>
+    <div class="background" transition:persist>
+      <Image src={Background} loading="eager" alt="" />
+    </div>
     <div class="wrapper">
       <Header title={pageTitle} />
       <main transition:animate="slide">
         <h1>Imprint</h1>
 
-        <p><strong>Red Ochsenbein</strong></p>
-        <p>Haldenweg 3<br>3400 Burgdorf<br>Switzerland</p>
+        <p>
+          <strong>Red Ochsenbein</strong>
+        </p>
+        <p>
+          Haldenweg 3<br />
+          3400 Burgdorf
+          <br />
+          Switzerland
+        </p>
 
-        <p>Phone: <a href="tel:+41763737020">+41 76 373 70 20</a></p>
-        <p>Email: <a href="mailto:website@c40d9986.com">website@c40d9986.com</a></p>
+        <p>
+          Phone: <a href="tel:+41763737020">+41 76 373 70 20</a>
+        </p>
+        <p>
+          Email: <a href="mailto:website@c40d9986.com">website@c40d9986.com</a>
+        </p>
       </main>
     </div>
     <Footer />

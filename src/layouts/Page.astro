@@ -45,7 +45,9 @@ const portraitSlide = {
     <BaseHead title={pageTitle} description={pageDescription} />
   </head>
   <body>
-    <div class="background" transition:persist><Image src={Background} loading="eager" alt="" /></div>
+    <div class="background" transition:persist>
+      <Image src={Background} loading="eager" alt="" />
+    </div>
     <div class="wrapper">
       <Header title={pageTitle} />
       <main transition:animate="slide">
