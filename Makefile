@@ -3,26 +3,29 @@ help:
 	@echo "make develop   Start the astro app for development."
 	@echo "make serve     Build and serve the astro app."
 	@echo "make clean     Clean the build artifacts."
-	@echo "make format    Format files using prettier."
+	@echo "make format    Format files using Vite+."
+	@echo "make check     Format, lint and type check using Vite+."
 	@echo "make deploy    Deploy the app to the web."
 	@echo "make test      Run tests."
 
-ASTRO=node_modules/.bin/astro
-PRETTIER=node_modules/.bin/prettier
+VP=vp
 
 build: dist
 	@echo "Built!"
 
 develop: node_modules
-	${ASTRO} dev
+	${VP} run dev
 
-format:
-	${PRETTIER} --write "**/*.{js,jsx,ts,tsx,json,md,astro}"
+format: node_modules
+	${VP} fmt --write
+
+check: node_modules
+	${VP} check
 
 start: develop
 
 serve: build
-	${ASTRO} preview
+	${VP} run preview
 
 deploy: node_modules
 	git switch main  && git push
@@ -38,8 +41,8 @@ test: node_modules
 ######################################################################
 
 dist : node_modules src
-	${ASTRO} build
+	${VP} run build
 
 node_modules : pnpm-lock.yaml package.json
-	pnpm install
+	${VP} install
 	touch node_modules
